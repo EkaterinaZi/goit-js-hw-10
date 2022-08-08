@@ -19,12 +19,11 @@ function inputEnter(e){
 return
    }
    onSearch(input).then((data) => {
-    return sortingCountrysArray(data) 
+   sortingCountrysArray(data) 
  }
  )
- .catch((error) => { error});
+ .catch(Notiflix.Notify.failure('Oops, there is no country with that name'));
 }
-//Notiflix.Notify.failure('Oops, there is no country with that name')
 
 function sortingCountrysArray(data){
   if(data.length >= 10){
