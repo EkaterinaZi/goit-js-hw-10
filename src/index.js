@@ -12,17 +12,20 @@ inputEl.addEventListener('input', debounce(inputEnter, DEBOUNCE_DELAY));
 
 
 function inputEnter(e){
-   e.preventDefault();
    const input =  e.target.value.trim();
    console.log(input) 
    if(input === ''){
     content.innerHTML = '';
 return
    }
-   onSearch(input)
+   onSearch(input).then((data) => {
+    return sortingCountrysArray(data) 
+ }
+ )
+ .catch((error) => { error});
 }
+//Notiflix.Notify.failure('Oops, there is no country with that name')
 
-export default
 function sortingCountrysArray(data){
   if(data.length >= 10){
     content.innerHTML = '';
