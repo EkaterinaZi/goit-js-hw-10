@@ -22,9 +22,11 @@ return
    sortingCountrysArray(data) 
  }
  )
- .catch(Notiflix.Notify.failure('Oops, there is no country with that name'));
+ .catch(error);
 }
-
+function error (){
+  Notiflix.Notify.failure('Oops, there is no country with that name')
+}
 function sortingCountrysArray(data){
   if(data.length >= 10){
     content.innerHTML = '';
